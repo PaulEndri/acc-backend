@@ -8,7 +8,13 @@ export interface ISaveData {
 		Fossils: string[];
 	};
 	Catalogued: {
-		Furniture: string[];
+		Furniture: {
+			Furniture: string[];
+			Gyroids: string[];
+			Wallpapers: string[];
+			Flooring: string[];
+			Paper: [];
+		};
 		Clothing: string[];
 		Fishes: string[];
 		Bugs: string[];
