@@ -11,4 +11,4 @@
 
 [[redirects]]
     from="/api"
-    to="./netlify/functions/server"
+    to="./netlify/functions/api"
