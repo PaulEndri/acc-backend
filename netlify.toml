@@ -8,3 +8,7 @@
     functionPort = "34567"
     targetPort = 8010
     autoLaunch = true
+
+[[redirects]]
+    from="/api"
+    to="./netlify/functions/server"
