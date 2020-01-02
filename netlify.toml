@@ -11,4 +11,4 @@
 
 [[headers]]
   [headers.values]
-  Access-Control-Allow-Origin = "*.paulendri.com"
+  Access-Control-Allow-Origin = "*"
