@@ -9,10 +9,6 @@
     targetPort = 8010
     autoLaunch = true
 
-[[redirects]]
-  from="/api/*"
-  to="/.netlify/functions/server/*"
-
 [[headers]]
   [headers.values]
   Access-Control-Allow-Origin = "*.paulendri.com"
