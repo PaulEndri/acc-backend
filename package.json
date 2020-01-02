@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/index",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && netlify-lambda build dist",
     "start": "node dist"
   },
   "author": "Paul Endri",

@@ -1,6 +1,6 @@
 [build]
   command = "npm install && npm run build"
-  functions = "dist"
+  functions = "dist-lambda"
 
 [dev]
     command = "node dist"
@@ -10,5 +10,5 @@
     autoLaunch = true
 
 [[redirects]]
-    from="/api"
-    to="/.netlify/functions/api"
+  from="/api"
+  to="/.netlify/functions/server"
