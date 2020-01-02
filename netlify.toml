@@ -10,5 +10,5 @@
     autoLaunch = true
 
 [[redirects]]
-  from="/api"
-  to="/.netlify/functions/server"
+  from="/api/*"
+  to="/.netlify/functions/server/:path*"
