@@ -24,7 +24,7 @@ router
 	.post('/player', controller.create)
 	.put('/player/:googleId', controller.update);
 
-app.use(serve('./'));
+app.use(serve('../'));
 app.use(bodyParser());
 app.use(router.routes());
 app.use(router.allowedMethods());
