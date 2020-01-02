@@ -5,15 +5,17 @@ import bodyParser from 'koa-bodyparser';
 import dotenv from 'dotenv';
 import serverless from 'serverless-http';
 import { PlayerController } from './controllers/player';
+import serve from 'koa-static';
 
 dotenv.config();
 
-mongoose.connect(process.env.MONGOOSE_CONNECTION_STRING || '', { useUnifiedTopology: true });
+mongoose.connect(process.env.MONGOOSE_CONNECTION_STRING || '');
 mongoose.connection.on('error', console.error);
 
-const prefix = process.env.NODE_ENV === 'local' ? '/api' : '/.netlify/functions/server';
 const app = new Koa();
-const router = new KoaRouter({ prefix });
+const router = new KoaRouter({
+	prefix: process.env.NODE_ENV === 'local' ? 'api' : '/.netlify/functions/server'
+});
 const controller = new PlayerController();
 
 // Only three routes, we can handle it for now.
@@ -22,15 +24,15 @@ router
 	.post('/player', controller.create)
 	.put('/player/:googleId', controller.update);
 
+app.use(serve('./'));
 app.use(bodyParser());
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-if (process.env.NODE_ENV === 'local') {
-	app.listen(process.env.PORT, () => {
-		console.log(`App succesfully started on http://localhost:${process.env.PORT}`);
-	});
-}
+// if (process.env.NODE_ENV === 'local') {
+// 	app.listen(process.env.PORT, () => {
+// 		console.log(`App succesfully started on http://localhost:${process.env.PORT}`);
+// 	});
+// }
 
-module.exports = app;
 module.exports.handler = serverless(app);

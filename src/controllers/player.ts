@@ -1,5 +1,5 @@
 import { Context } from 'koa';
-import Players from '../models/players';
+import { Players } from '../models/players';
 
 export class PlayerController {
 	async get(ctx: Context) {
