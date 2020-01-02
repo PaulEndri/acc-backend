@@ -14,7 +14,7 @@ mongoose.connection.on('error', console.error);
 
 const app = new Koa();
 const router = new KoaRouter({
-	prefix: process.env.NODE_ENV === 'local' ? '/api' : '/.netlify/functions'
+	prefix: '/.netlify/functions/server'
 });
 const controller = new PlayerController();
 
